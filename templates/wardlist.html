@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> List </title>
+    {% include 'base/css.html' %}
+    {% include 'base/js.css.html' %}
+</div>
+</head>
+{% include 'nav.html' %}
+<form method="get">
+
+   {{ myFilter.form }}
+
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find</button>
+</form>
+<body>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Patient: {{ patient_count }}</th>
+        <th scope="col">Name</th>
+      <th scope="col">Room Number</th>
+      <th scope="col">Ward</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for object in patient %}
+    <tr>
+      <th scope="row"></th>
+      <td><a href="{% url 'detailed' object.id %}">{{ object.name }}</a></td>
+      <td>{{ object.number }}</td>
+      <td>{{ object.ward }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+</body>
+</html>

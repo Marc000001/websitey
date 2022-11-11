@@ -9,28 +9,23 @@
   </head>
   <body>
 {#        {% include 'base/navbar.html' %}#}
-        <section class="vh-100" style="background-color: #508bfc;">
+        <section class="vh-100" style="background-color: #36454F;">
           <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                   <div class="card-body p-5 text-center">
-
+{#                  <img src="auth/Logo.png">#}
+                        <h6>Patient Hub</h6>
                     <div class="container mt-5 pt-5">
                       <!-- Pills navs -->
                     <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tablist"
-                          aria-controls="pills-login" aria-selected="true">Login</a>
-                      </li>
 {#                      <li class="nav-item" role="presentation">#}
 {#                        <a class="nav-link" id="tab-register" data-toggle="pill" href="#pills-register" role="tablist"#}
 {#                          aria-controls="pills-register" aria-selected="false">Register</a>#}
 {#                      </li>#}
                     </ul>
-                    <!-- Pills navs -->
 
-                    <!-- Pills content -->
                     <div class="tab-content">
                       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                         <form method="post">
@@ -42,30 +37,12 @@
                                 </div>
                             {% endfor %}
 
-                                                    <!-- Submit button -->
+
                           <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
-                          <!-- Register buttons -->
+
 
                         </form>
-                      </div>
-                      <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-{#                        <form method="post">#}
-{#                            {% csrf_token %}#}
-{#                            {% for poo in regForm %}#}
-{#                                <div class="form-outline mb-4">#}
-{#                                    {{ poo }}#}
-{#                                    <label class="form-label" for="loginName">{{ poo.label }}</label>#}
-{#                                </div>#}
-{#                            {% endfor %}#}
-{##}
-{##}
-{#                          <!-- Submit button -->#}
-{#                          <button type="submit" class="btn btn-primary btn-block mb-3">Sign Up</button>#}
-{#                        </form>#}
-                      </div>
-                    </div>
-                    <!-- Pills content -->
 
           </div>
         </div>

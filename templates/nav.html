@@ -1,0 +1,44 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+  <a class="navbar-brand">
+{# <img src="auth/L" width="30" height="30" class="d-inline-block align-top" alt="">#}
+      PatientHub
+  </a>
+{#       <a class="navbar-brand"> {{ request.user }}</a>#}
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+
+      </li>
+     {% if request.user.is_admin or request.user.is_staff or request.user.is_personel or request.user.is_patient %}
+           <a class="nav-link" href="{% url 'wardlist' %}">My ward</a>
+         <a class="nav-link" href="{% url 'patient_list' %}">All Patients</a>
+            {% endif %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actions
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+             {% if request.user.is_admin or request.user.is_staff or request.user.is_personel or request.user.is_patient %}
+          <a class="dropdown-item" href="{% url 'addPatient'  %}">New Patient</a>
+                  {% endif %}
+         {% if request.user.is_admin or request.user.is_staff %}
+          <a class="dropdown-item" href="{% url 'users' %}">User List</a>
+             <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                {% endif %}
+          <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="{% url 'login' %}">Log out</a>
+        </div>
+      </li>
+    </ul>
+
+  </div></div>
+</nav>

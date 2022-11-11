@@ -1,0 +1,35 @@
+{% extends 'list.html' %}
+
+{% block content %}
+
+<h1 class="text center"> Search Results </h1>
+    <hr>
+<div class="container">
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Patient</th>
+        <th scope="col">Name</th>
+      <th scope="col">Room Number</th>
+      <th scope="col">Ward</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if patient %}
+   {% for object in patient %}
+    <tr>
+      <th scope="row"></th>
+      <td><a href="{% url 'detailed' object.id %}">{{ object.name }}</a></td>
+      <td>{{ object.number }}</td>
+      <td>{{ object.ward }}</td>
+    </tr>
+  {% endfor %}
+  {% else %}
+        <p>Such Patient does not Exist</p>
+  {% endif %}
+  </tbody>
+</table>
+
+</div>
+{% endblock %}

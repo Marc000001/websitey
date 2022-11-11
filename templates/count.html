@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-20 mt-10">
+        <div class="card">
+
+
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+{#                        <a class="text-decoration-none text-dark" href="{% url 'user_list' %}">#}
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h4>Doctors <i class="fas fa-users"></i></h4>
+                                    <h3>{{ user_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+{#                       <a class="text-decoration-none text-dark" href="{% url 'patient_list' %}">#}
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h4>Admitted Patient <i class="fas fa-box"></i></h4>
+                                    <h3>{{ patient_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h4>None Admitted Patient <i class="fas fa-shipping-fast"></i></h4>
+                                    <h3>{{ Npatient_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,42 @@
+
+{% if not patient.notes.all %}
+    <h2>No Notes Yet..... </h2>
+      <a href="{% url 'add-note' object.id %}" class="btn btn-warning m-1:"> New Note </a>
+{% else %}
+          <h2>Notes:</h2>
+      <a href="{% url 'add-note' object.id %}" class="btn btn-warning m-1:"> New Note </a>
+{% for Note in patient.notes.all %}
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-0 border" style="background-color: #7577fa;">
+      <div class="card-body p-4">
+        <div class="form-outline mb-4">
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <p>{{ Note.note }}</p>
+
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                  {{ Note.id }}
+                <p class="small mb-0 ms-2">Made by: {{ Note.created_by }} || </p>
+                  <br>
+                  <p class="small mb-0 ms-2">Created at: {{ Note.date_created }}</p>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                          {% if request.user.username == Note.created_by %}
+                <a href="{% url 'delete-note' Note.id  %}" class="btn btn-danger m-1:"> Delete</a>
+                     {% endif %}
+                <i class="far fa-thumbs-up ms-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <br>
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Description </title>
+    {% include 'base/css.html' %}
+    {% include 'base/js.css.html' %}
+</head>
+<body>
+{% include 'nav.html' %}
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+         <th scope="col">Patient: {{ patient_count }}</th>
+        <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Room Number</th>
+         <th scope="col">Ward</th>
+        <th scope="col">Symptoms</th>
+        <th scope="col">Admission Time</th>
+        <th scope="col">Admitted</th>
+          <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <th scope="row"></th>
+      <td>{{ object.name }}</td>
+      <td>{{ object.description  }}</td>
+      <td>{{ object.number }}</td>
+    <td>{{ object.ward }}</td>
+        <td>{{ object.symptoms }}</td>
+    <td>{{ object.time }}</td>
+        <td>{{patient.Admitted}}</td>
+    <td>  <a href="{% url 'updatePatient' object.id %}" class="btn btn-primary m-1:"> Update </a>
+    <a href="{% url 'deletePatient' object.id %}" class="btn btn-danger m-1:"> Delete </a> <br> <br>
+    </td>
+
+
+
+    </tr>
+  </tbody>
+</table>
+
+</body>
+{% include 'notes.html' %}
+<br>
+<br>
+<br>
+
+</html>
+
+
+

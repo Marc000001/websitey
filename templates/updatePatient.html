@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% include 'base/css.html' %}
+    {% include 'base/js.css.html' %}
+
+{% include 'nav.html' %}
+    <title>Update</title>
+    <h2>
+        Update Patient
+    </h2>
+
+    <div class="container m-5">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="Submit">
+
+        </form>
+
+    </div>
+</head>
+<body>
+</body>
+</html>

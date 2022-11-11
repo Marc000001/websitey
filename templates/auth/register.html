@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+        {% include 'base/css.html' %}
+    {% include 'base/js.css.html' %}
 </head>
 <body>
+{% include 'nav.html' %}
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row justify-content-center align-items-center h-100">
@@ -12,81 +15,90 @@
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-            <form>
+            <form method="post">
+                {{ form.errors }}
+                {% csrf_token %}
+                <div class="row">
 
-              <div class="row">
-                <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            {{ form.username }}
+                        </div>
+                    </div>
 
-                  <div class="form-outline">
-                    <input type="text" id="firstName" class="form-control form-control-lg" />
-                    <label class="form-label" for="firstName">First Name</label>
-                  </div>
+
+                   <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            {{ form.first_name }}
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            {{ form.password1 }}
+                        </div>
+                    </div>
+
+                 <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+
+
+                 <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            {{ form.level }}
+                        </div>
+                    </div>
+
+
+
+                    {% if request.user.is_admin %}
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                {{ form.personel }}
+                                <label>Hospital Personel</label>
+                            </div>
+                        </div>
+
+
+                          <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                {{ form.patient }}
+                                <label>Hospital Patient</label>
+                            </div>
+                        </div>
+
+
+
+                     {% elif request.user.is_staff %}
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                {{ form.personel }}
+                                <label>Hospital Admin</label>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+
 
                 </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
-                    <label class="form-label" for="lastName">Last Name</label>
-                  </div>
 
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                  <div class="form-outline datepicker w-100">
-                    <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                    <label for="birthdayDate" class="form-label">Birthday</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <h6 class="mb-2 pb-1">Gender: </h6>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                      value="option1" checked />
-                    <label class="form-check-label" for="femaleGender">Female</label>
-                  </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                      value="option2" />
-                    <label class="form-check-label" for="maleGender">Male</label>
-                  </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                      value="option3" />
-                    <label class="form-check-label" for="otherGender">Other</label>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                    <label class="form-label" for="emailAddress">Email</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">Phone Number</label>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="mt-4 pt-2">
+ <div class="mt-4 pt-2">
                 <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
               </div>
 
